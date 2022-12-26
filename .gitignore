@@ -2,6 +2,15 @@
 /dist
 /node_modules
 
+# yarn cache
+.yarn/*
+.yarn/cache
+!.yarn/patches
+!.yarn/releases
+!.yarn/plugins
+!.yarn/sdks
+!.yarn/versions
+
 # Logs
 logs
 *.log
