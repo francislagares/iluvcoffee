@@ -1,11 +1,23 @@
 version: "3.9"
-
 services:
   db:
     image: "postgres"
+    container_name: iluvcoffee-db
     restart: "always"
     ports:
       - "5432:5432"
     environment:
       POSTGRES_PASSWORD: pass123
-  
+  redis:
+    container_name: redis-cache
+    image: redis
+    ports:
+      - 6379:6379
+  redis-commander:
+    container_name: redis-commander
+    hostname: redis-commander
+    image: ghcr.io/joeferner/redis-commander:latest
+    environment:
+      - REDIS_HOSTS=local:redis:6379
+    ports:
+      - '8081:8081'
